@@ -7,6 +7,10 @@ class _BaseAPI():
     def __init__(self, session: Session):
         self._s = session
 
+        self.__post_init__()
+
+    def __post_init__(self): pass
+
     def _try(func: callable, *args, **kwargs):
         def inner():
             try:
@@ -17,6 +21,9 @@ class _BaseAPI():
         return inner
 
     def _endpoint_to_absolute_path(self, endpoint: str) -> str:
+        if endpoint.endswith("/"):
+            endpoint = endpoint[:-1]
+
         return urlparse.urljoin('https://api.zoom.us/v2/', endpoint)
 
     def request(self, method: str, endpoint: str, *args, **kwargs) -> Response:
