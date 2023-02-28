@@ -1,7 +1,7 @@
 from .sites import SitesAPI
 from .devices import DevicesAPI
 
-from zoomclient.api.base import _BaseAPI
+from zoomdotpy.api.base import _BaseAPI
 
 class PhonesAPI(_BaseAPI):
     devices: DevicesAPI

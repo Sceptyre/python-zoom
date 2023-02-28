@@ -1,5 +1,5 @@
-from dataclasses import dataclass, asdict
-from zoomclient.api.base import _BaseAPI
+from dataclasses import dataclass
+from zoomdotpy.api.base import _BaseAPI
 
 @dataclass
 class SiteEmergencyAddress():

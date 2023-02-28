@@ -1,5 +1,5 @@
 import logging
-import zoomclient
+import zoomdotpy
 import unittest
 import os
 
@@ -20,7 +20,7 @@ class BaseTestCase( unittest.TestCase ):
         self.logger = logging.getLogger( self.__class__.__name__ )
         logging.basicConfig( level=logging.INFO )
         
-        self.zc = zoomclient.ZoomClient(
+        self.zc = zoomdotpy.ZoomClient(
             os.getenv("TEST_ACCOUNT"),
             os.getenv("TEST_KEY"),
             os.getenv("TEST_SECRET")

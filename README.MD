@@ -9,7 +9,7 @@ Bleeding Edge:
 
 # Usage
 ```py
-from zoomclient import ZoomClient
+from zoomdotpy import ZoomClient
 
 zoom = ZoomClient(
     '<API_KEY>',
