@@ -1,8 +1,8 @@
-# python-zoom
+# ZoomDotPy
 Designed for use with a server-to-server oauth zoom developer app
 
 # Install
-`pip install git+https://github.com/Sceptyre/python-zoom.git@main`  
+`python3 -m pip install zoomdotpy`  
 
 Bleeding Edge:  
 `pip install git+https://github.com/Sceptyre/python-zoom.git@devel`
