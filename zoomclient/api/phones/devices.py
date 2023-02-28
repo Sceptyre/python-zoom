@@ -1,6 +1,6 @@
-from .base import _BaseAPI
+from ..base import _BaseAPI
 
-class PhonesAPI(_BaseAPI):
+class PhoneDevicesAPI(_BaseAPI):
     def list_phones(self, params: dict = {}):
         """
             Retrieves a list of phones in zoom

@@ -12,7 +12,13 @@ class ZoomClient():
     def _get_token(self, account_id: str, username: str, password: str) -> str:
         self.s.auth = HTTPBasicAuth(username, password)
         
-        res = self.s.post('https://zoom.us/oauth/token?grant_type=account_credentials&account_id=' + account_id)
+        res = self.s.post(
+            'https://zoom.us/oauth/token',
+            params={
+                'grant_type': 'account_credentials',
+                'account_id': account_id
+            }
+        )
         res.raise_for_status()
 
         self.s.auth = None
