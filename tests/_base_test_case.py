@@ -8,7 +8,6 @@ def zoom_client_test(func: callable):
         self.logger.info(f"{func.__name__}")
 
         out = func( self, *args, **kwargs )
-
         if out.get('code') and out.get('message'):
             raise Exception(out['message'])
 
