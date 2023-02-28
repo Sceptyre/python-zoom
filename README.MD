@@ -1,8 +1,11 @@
+# python-zoom
+Designed for use with a server-to-server oauth zoom developer app
+
 # Install
-`pip install git+https://github.com/Sceptyre/python-umbrella-client.git@main`  
+`pip install git+https://github.com/Sceptyre/python-zoom.git@main`  
 
 Bleeding Edge:  
-`pip install git+https://github.com/Sceptyre/python-umbrella-client.git@devel`
+`pip install git+https://github.com/Sceptyre/python-zoom.git@devel`
 
 # Usage
 ```py
