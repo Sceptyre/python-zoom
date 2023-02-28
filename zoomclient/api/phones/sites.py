@@ -16,7 +16,7 @@ class SiteShortExtension():
     length: int
 
 
-class PhoneSitesAPI(_BaseAPI):
+class SitesAPI(_BaseAPI):
     def list_sites(self, params: dict = {}) -> dict:
         res = self.request('GET', 'phone/sites', params)
 
