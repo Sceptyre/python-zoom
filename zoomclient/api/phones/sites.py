@@ -1,7 +1,6 @@
 from dataclasses import dataclass, asdict
 from zoomclient.api.base import _BaseAPI
 
-
 @dataclass
 class SiteEmergencyAddress():
     address_line1   : str
@@ -18,12 +17,12 @@ class SiteShortExtension():
 
 
 class PhoneSitesAPI(_BaseAPI):
-    def list_sites(self, params: dict = {}):
+    def list_sites(self, params: dict = {}) -> dict:
         res = self.request('GET', 'phone/sites', params)
 
         return res.json()
 
-    def get_site(self, site_id: str, params: dict = {}):
+    def get_site(self, site_id: str, params: dict = {}) -> dict:
         res = self.request('GET', f'phone/sites/{site_id}', params)
 
         return res.json()
@@ -35,7 +34,7 @@ class PhoneSitesAPI(_BaseAPI):
         name: str,
         site_code: int = None,
         short_extension: SiteShortExtension = None
-    ):
+    ) -> dict:
         body = {
             'name': name,
             'auto_receptionist_name': auto_receptionist_name,
@@ -49,11 +48,20 @@ class PhoneSitesAPI(_BaseAPI):
 
         return res.json()
 
+    def update_site(
+        self,
+        site_id: str,
+        site_details: dict
+    ) -> dict:
+        res = self.request('PATCH', f'phone/sites/{site_id}', json=site_details)
+
+        return res.json()
+
     def delete_site(
         self, 
         site_id: str,
         transfer_site_id: str
-    ):
+    ) -> dict:
         res = self.request(
             'DELETE',
             f'phone/sites/{site_id}',
