@@ -2,7 +2,7 @@ import json
 import os
 
 # Prep
-os.makedirs('out', exist_ok=True)
+os.makedirs('.spec', exist_ok=True)
 
 spec = None
 
@@ -61,7 +61,7 @@ class {module_name}API(_BaseAPI):
         description = action['description'].replace('\n', '\n\t\t\t')
 
         class_template += \
-        f"""def {method_map[method]}_{spec_path.split('/')[2]}(self {', ' + ', '.join(path_variables) if action.get('parameters') else ''}):
+        f"""def {method_map[method]}_{spec_path.split('/')[2]}(self{', ' + ', '.join(path_variables) if action.get('parameters') else ''}):
         \"\"\"
             {description}
         \"\"\"
@@ -75,11 +75,10 @@ class {module_name}API(_BaseAPI):
         )
 
         return res.json()
-        
-        """
+    """
 
     return class_template
 
 for k,v in spec['paths'].items():
-    with open(f"out/{k.split('/')[2]}.py", 'w+') as f:
+    with open(f"out/{'_'.join(k.split('/')[2:]).replace('}', '').replace('{', '')}.py", 'w+') as f:
         f.write(module_from_spec_path_definition(k,v))
