@@ -61,7 +61,7 @@ class SitesAPI(_BaseAPI):
         self, 
         site_id: str,
         transfer_site_id: str
-    ) -> dict:
+    ) -> bool:
         res = self.request(
             'DELETE',
             f'phone/sites/{site_id}',
@@ -70,4 +70,4 @@ class SitesAPI(_BaseAPI):
             }
         )
 
-        return res.json()
+        return res.status_code == 204
