@@ -15,7 +15,7 @@ class EmergencyAddressesAPI(_BaseAPI):
 
         res = self.request(
             'GET',
-            f'/phone/emergency_addresses',
+            f'phone/emergency_addresses',
             params=params
         )
 
@@ -35,7 +35,7 @@ class EmergencyAddressesAPI(_BaseAPI):
 
         res = self.request(
             'POST',
-            f'/phone/emergency_addresses',
+            f'phone/emergency_addresses',
             json=body
         )
 
@@ -55,7 +55,7 @@ class EmergencyAddressesAPI(_BaseAPI):
 
         res = self.request(
             'DELETE',
-            f'/phone/emergency_addresses/{emergency_address_id}'
+            f'phone/emergency_addresses/{emergency_address_id}'
         )
 
         return res.json()
@@ -75,7 +75,7 @@ class EmergencyAddressesAPI(_BaseAPI):
 
         res = self.request(
             'GET',
-            f'/phone/emergency_addresses/{emergency_address_id}'
+            f'phone/emergency_addresses/{emergency_address_id}'
         )
 
         return res.json()
@@ -94,7 +94,7 @@ class EmergencyAddressesAPI(_BaseAPI):
 
         res = self.request(
             'PATCH',
-            f'/phone/emergency_addresses/{emergency_address_id}',
+            f'phone/emergency_addresses/{emergency_address_id}',
             json=body
         )
 

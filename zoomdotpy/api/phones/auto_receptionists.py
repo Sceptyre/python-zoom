@@ -16,7 +16,7 @@ class AutoReceptionistsAPI(_BaseAPI):
 
         res = self.request(
             'GET',
-            f'/phone/auto_receptionists',
+            f'phone/auto_receptionists',
             params=params
         )
 
@@ -46,7 +46,7 @@ class AutoReceptionistsAPI(_BaseAPI):
 
         res = self.request(
             'POST',
-            f'/phone/auto_receptionists',
+            f'phone/auto_receptionists',
             json=body
         )
 
@@ -67,7 +67,7 @@ class AutoReceptionistsAPI(_BaseAPI):
 
         res = self.request(
             'GET',
-            f'/phone/auto_receptionists/{auto_receptionist_id}'
+            f'phone/auto_receptionists/{auto_receptionist_id}'
         )
 
         return res.json()
@@ -105,7 +105,7 @@ class AutoReceptionistsAPI(_BaseAPI):
 
         res = self.request(
             'PATCH',
-            f'/phone/auto_receptionists/{auto_receptionist_id}',
+            f'phone/auto_receptionists/{auto_receptionist_id}',
             json=body
         )
 
@@ -126,7 +126,7 @@ class AutoReceptionistsAPI(_BaseAPI):
 
         res = self.request(
             'DELETE',
-            f'/phone/auto_receptionists/{auto_receptionist_id}'
+            f'phone/auto_receptionists/{auto_receptionist_id}'
         )
 
         return res.json()
