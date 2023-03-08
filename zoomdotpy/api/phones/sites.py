@@ -52,10 +52,13 @@ class SitesAPI(_BaseAPI):
         self,
         site_id: str,
         site_details: dict
-    ) -> dict:
+    ) -> bool:
         res = self.request('PATCH', f'phone/sites/{site_id}', json=site_details)
 
-        return res.json()
+        if res.status_code == 204:
+            return True
+        else:
+            raise Exception(res.json()['message'])
 
     def delete_site(
         self, 
@@ -70,4 +73,7 @@ class SitesAPI(_BaseAPI):
             }
         )
 
-        return res.status_code == 204
+        if res.status_code == 204:
+            return True
+        else:
+            raise Exception(res.json()['message'])

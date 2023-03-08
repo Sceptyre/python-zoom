@@ -81,7 +81,7 @@ class EmergencyAddressesAPI(_BaseAPI):
         return res.json()
 
 
-    def update_emergency_address(self, emergency_address_id: str, body: dict):
+    def update_emergency_address(self, emergency_address_id: str, body: dict) -> bool:
         """
             Updates an emergency address information. If the address provided is not an exact match, the system generated corrected address will be used. 
 			
@@ -98,4 +98,4 @@ class EmergencyAddressesAPI(_BaseAPI):
             json=body
         )
 
-        return res.json()
+        return res.status_code == 204
