@@ -136,3 +136,45 @@ class AutoReceptionistsAPI(_BaseAPI):
             return True
         else:
             raise Exception(res.json()['message'])
+
+
+    def get_auto_receptionist_ivr(self,  auto_receptionist_id: str):
+        """
+            Gets an [interactive voice response (IVR) system](https://support.zoom.us/hc/en-us/articles/360038601971) of the specified auto receptionist.
+			
+			**Scopes:** `phone:read:admin`<br>**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`
+			
+			**Prerequisites:**
+			 * A Business or Enterprise account 
+			* A Zoom Phone license
+        """
+
+        res = self.request(
+            'GET',
+            f'phone/auto_receptionists/{auto_receptionist_id}/ivr'
+        )
+
+        return res.json()
+
+
+    def update_auto_receptionist_ivr(self,  auto_receptionist_id: str, body: dict):
+        """
+            Updates the [interactive voice response (IVR) system](https://support.zoom.us/hc/en-us/articles/360038601971) of the specified auto receptionist.
+			
+			**Scopes:** `phone:write:admin`<br>**[Rate Limit Label](https://marketplace.zoom.us/docs/api-reference/rate-limits#rate-limits):** `Light`
+			
+			**Prerequisites:**
+			 * A Business or Enterprise account 
+			* A Zoom Phone license
+        """
+
+        res = self.request(
+            'PATCH',
+            f'phone/auto_receptionists/{auto_receptionist_id}/ivr',
+            json=body
+        )
+
+        if res.status_code == 204:
+            return True
+        else:
+            raise Exception(res.json()['message'])
