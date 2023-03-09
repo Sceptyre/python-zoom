@@ -23,7 +23,7 @@ class CallQueuesAPI(_BaseAPI):
 
         res = self.request(
             'GET',
-            f'/phone/call_queues',
+            f'phone/call_queues',
             params=params
         )
 
@@ -50,7 +50,7 @@ class CallQueuesAPI(_BaseAPI):
 
         res = self.request(
             'POST',
-            f'/phone/call_queues',
+            f'phone/call_queues',
             json=body
         )
 
@@ -79,7 +79,7 @@ class CallQueuesAPI(_BaseAPI):
 
         res = self.request(
             'DELETE',
-            f'/phone/call_queues/{call_queue_id}'
+            f'phone/call_queues/{call_queue_id}'
         )
 
         if res.status_code == 204:
@@ -109,7 +109,7 @@ class CallQueuesAPI(_BaseAPI):
 
         res = self.request(
             'GET',
-            f'/phone/call_queues/{call_queue_id}'
+            f'phone/call_queues/{call_queue_id}'
         )
 
         return res.json()
@@ -135,7 +135,7 @@ class CallQueuesAPI(_BaseAPI):
 
         res = self.request(
             'PATCH',
-            f'/phone/call_queues/{call_queue_id}',
+            f'phone/call_queues/{call_queue_id}',
             json=body
         )
 
